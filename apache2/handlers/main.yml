@@ -1,0 +1,16 @@
+---
+# handlers file for apache2
+- name: restart-apache2
+  service:
+   name: apache2
+   state: restarted
+
+- name: url-responce
+  uri:
+   url: http://13.232.108.201/
+   status: 200
+   
+   url: http://13.232.123.235/
+   status: 200
+
+...

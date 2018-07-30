@@ -1,0 +1,16 @@
+---
+# tasks file for apache2
+- name: Ensure to Install Apache2
+  apt:
+   name: apache2 
+   state: present
+   update_cache: yes
+  notify:
+   - url-responce
+
+- name: Edit index.html file
+  copy:
+   content: "Welcome to my home page \n"
+   dest: /var/www/html/index.html
+  notify:
+   - restart-apache2
